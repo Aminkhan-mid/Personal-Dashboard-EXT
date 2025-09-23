@@ -6,30 +6,9 @@
 </head>
 <body>
   <h1>My Pinterest Saved Pins</h1>
-  <div id="pins"></div>
+  <div id="pins"></div> 
+  <!-- Display pins here -->
 
-  <script>
-    const accessToken = "YOUR_ACCESS_TOKEN"; // replace with your token
-
-    async function fetchPins() {
-      const res = await fetch("https://api.pinterest.com/v5/pins", {
-        headers: {
-          Authorization: `Bearer ${accessToken}`
-        }
-      });
-      const data = await res.json();
-      console.log(data); // check structure in console
-
-      const container = document.getElementById("pins");
-      data.items.forEach(pin => {
-        const img = document.createElement("img");
-        img.src = pin.media.images["original"].url; 
-        img.width = 200;
-        container.appendChild(img);
-      });
-    }
-
-    fetchPins();
-  </script>
+  <script src="./index.js" type="module"></script>
 </body>
 </html>
