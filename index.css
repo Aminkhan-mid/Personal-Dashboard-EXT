@@ -10,3 +10,7 @@ body{
     background-size: cover;
 }
 
+.ability {
+    display: block;
+    background-color: lemonchiffon;
+}

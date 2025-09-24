@@ -1,23 +1,39 @@
+const weather = document.getElementById("weather")
 const time = document.getElementById("time")
+const quote = document.getElementById("quote")
 const pokemon = document.getElementById("pokemon")
+const abilities = document.getElementById("abilities")
 
-// async function fetchRandomUnsplashImg() {
-// const accessKey = `kZoo-fy-KtJEGUao4qdcCg9gyhahcTDyq7EWuGxs-GE`
-//     const apiUrl = `https://api.unsplash.com/photos/random?orientation=landscape&query=nature&client_id=${accessKey}`
-//     try{
-//         const res = await fetch(apiUrl)
-//         if(!res.ok){
-//             throw new Error (`HTTP error! status: ${res.status}`)
-//         }
-//         const data = await res.json()
-//         const imageUrl = data.urls.regular
-//         document.body.style.backgroundImage = `url(${imageUrl})`
-//     }
-//     catch{
-//         console.error("Error fetching Unsplash image:", error)
-//     }
-// }
-// fetchRandomUnsplashImg()
+
+
+navigator.geolocation.getCurrentPosition(async position => {
+  const crd = position.coords;
+  const latitude = crd.latitude;
+  const longitude = crd.longitude;
+  const apiKey = "1ad29d4803cb3b86c237422b71268c9d";
+
+  try{
+      const res = await fetch(
+          `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${apiKey}`);
+          if(!res.ok){
+            throw Error("Something Went Wrong!")
+          }
+          const data = await res.json();
+          const iconID = data.weather[0].icon
+          const weatherIcon = `https://openweathermap.org/img/wn/${iconID}@2x.png`
+          weather.innerHTML = 
+          `
+            <p>${data.name}</p>
+            <p>🌡️ ${data.main.temp}</p>
+            <img src="${weatherIcon}" alt="${data.weather[0].description}"/>
+          `
+        }
+        catch(err){
+            console.log(err)
+        }
+});
+
+
 
 function getLocalTime(){
     const now = new Date().toLocaleTimeString("en-US", {timeStyle:"short"})
@@ -26,26 +42,48 @@ function getLocalTime(){
 }
 setInterval(getLocalTime, 1000)
 
+async function fetchRandomQuotes() {
+    const res = await fetch(`https://thequoteshub.com/api/success`)
+    const data = await res.json()
+    quote.innerHTML = 
+    `
+    <p>${data.text}</p>
+    <p>${data.author}</p>
+    `
+}
+fetchRandomQuotes()
 
 
 async function getPokemonGIF(){
-    const id = Math.floor(Math.random()*1010) + 1
-    console.log(id)
+    const id = Math.floor(Math.random() * 649) + 1;
     const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
     const data = await res.json()
-    const gifUrl = data.sprites.versions["generation-v"]["black-white"].animated.front_default 
-               || data.sprites.other["official-artwork"].front_default
-               || data.sprites.front_default;
-    pokemon.innerHTML = 
-    `   <img src="${gifUrl}" alt="pokemon"/>
-        <p>${data.name}</p>
-    `
-    console.log(gifUrl)
-}
 
+    const ability = data.abilities
+
+    const abilitiesArr =  ability.map((arr)=>{
+        const obj = arr.ability
+        const name = obj.name
+        return name
+    })
+    const abilitiesHTML = ability.map(type =>{
+        
+        `<p class="ability">${type.ability.name}</p>`
+    }).join("")
+
+    const gifUrl = data.sprites.versions["generation-v"]["black-white"].animated.front_default 
+    if(gifUrl){
+            pokemon.innerHTML = 
+            `   <img src="${gifUrl}" alt="pokemon"/>
+                <p>${data.name.charAt(0).toUpperCase() + data.name.slice(1)}</p>
+                ${abilitiesHTML}
+            `
+    }
+    if (!gifUrl){
+        return getPokemonGIF();
+    } 
+}
 getPokemonGIF()
 
+// array has an obj, which has another obj
 
-
-    // Access key: kZoo-fy-KtJEGUao4qdcCg9gyhahcTDyq7EWuGxs-GE
-    // Secret key: sxfbEZWz0Dc-wqFC4WwPDY5YCmExk2RXRja1pjGbnNI
