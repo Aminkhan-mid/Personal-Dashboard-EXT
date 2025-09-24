@@ -67,7 +67,7 @@ async function getPokemonGIF(){
     const gifUrl = data.sprites.versions["generation-v"]["black-white"].animated.front_default 
     if(gifUrl){
             pokemon.innerHTML = 
-            `   <img src="${gifUrl}" alt="pokemon"/>
+            `   <img class="pokemon-img" src="${gifUrl}" alt="pokemon"/>
                 <p>${data.name.charAt(0).toUpperCase() + data.name.slice(1)}</p>
                 ${abilitiesHTML}
             `

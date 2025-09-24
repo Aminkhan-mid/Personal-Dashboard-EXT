@@ -30,3 +30,8 @@ body{
 #time{
     font-size: 5rem;
 }
+
+
+.pokemon-img{
+    width: 500px;
+}
