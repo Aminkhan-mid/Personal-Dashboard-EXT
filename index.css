@@ -1,16 +1,32 @@
 *{
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
-
 body{
-    margin: 0;
-    height: 100vh;
-    background: no-repeat center center fixed;
-    background-size: cover;
+    font-family: sans-serif;
 }
 
-.ability {
-    display: block;
-    background-color: lemonchiffon;
+#weather{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 30px;
+    right: 10px;
+}
+.weather-icon{
+    width: 200px;
+    background-color: black;
+    border-radius: 60px;
+}
+
+.city-name{
+    font-size: 3rem;
+    width: fit-content;
+    margin-left: -15px;
+}
+
+#time{
+    font-size: 5rem;
 }
