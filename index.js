@@ -61,14 +61,8 @@ async function getPokemonGIF(){
 
     const ability = data.abilities
 
-    const abilitiesArr =  ability.map((arr)=>{
-        const obj = arr.ability
-        const name = obj.name
-        return name
-    })
-    const abilitiesHTML = ability.map(type =>{
-        
-        `<p class="ability">${type.ability.name}</p>`
+    const abilitiesHTML = ability.map(type =>{ 
+       return  `<p class="ability">${type.ability.name}</p>`
     }).join("")
 
     const gifUrl = data.sprites.versions["generation-v"]["black-white"].animated.front_default 
