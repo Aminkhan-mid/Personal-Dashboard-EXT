@@ -10,21 +10,22 @@ body{
 
 #weather{
     display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 30px;
-    right: 10px;
+    justify-content: flex-end;
+    align-items: flex-start;
+    height: 200px;
+}
+.weather-child{
+    margin: 20px;
 }
 .weather-icon{
     width: 200px;
     background-color: black;
     border-radius: 60px;
+    margin-left: 19px;
 }
 
 .city-name{
     font-size: 3rem;
-    width: fit-content;
-    margin-left: -15px;
 }
 
 #time{
@@ -33,5 +34,5 @@ body{
 
 
 .pokemon-img{
-    width: 500px;
+    width: 200px;
 }

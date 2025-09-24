@@ -23,8 +23,10 @@ navigator.geolocation.getCurrentPosition(async position => {
           const weatherIcon = `https://openweathermap.org/img/wn/${iconID}@2x.png`
           weather.innerHTML = 
           `
-          <img class="weather-icon" src="${weatherIcon}" alt="${data.weather[0].description}"/>
-          <p class="city-name">${data.name}</p>
+        <div class="weather-child">
+            <img class="weather-icon" src="${weatherIcon}" alt="${data.weather[0].description}"/>
+            <p class="city-name">${data.name}</p>
+        </div>
           `
         }
         catch(err){
