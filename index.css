@@ -1,51 +1,117 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
-body{
-    font-family: sans-serif;
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at top, #0d1b2a, #000);
+  color: #f1f1f1;
+  padding: 2rem;
 }
 
-#weather{
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-    height: 0px;
-}
-.weather-child{
-    margin: 20px;
-}
-.weather-icon{
-    width: 200px;
-    background-color: black;
-    border-radius: 60px;
-    margin-left: 19px;
+/* Container Grid */
+body > div {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1000px;
 }
 
-.city-name{
-    font-size: 3rem;
+/* Glassmorphic cards */
+#weather, #time, #dates, #quote, #pokemon {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-#time{
-    font-size: 5rem;
-    display: flex;
-    justify-content: flex-start;
-    width: fit-content;
-}
-.quote{
-    font-size: 2.5rem;
-    padding: 10px;
+#weather:hover, #time:hover, #dates:hover, #quote:hover, #pokemon:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
 }
 
-#pokemon{
-    display: block;
-    width: fit-content;
-    margin: 20px auto;
+/* Weather */
+.weather-child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.weather-icon {
+  width: 70px;
+  height: 70px;
+}
+.city-name {
+  margin-top: 0.5rem;
+  font-weight: 600;
+  color: #74c0fc;
 }
 
-.pokemon-img{
-    width: 300px;
+/* Time */
+#time {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #ffd43b;
+}
 
+/* Date */
+#dates {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #a5d8ff;
+}
+
+/* Quotes */
+.quote {
+  font-size: 1rem;
+  font-style: italic;
+  color: #e599f7;
+}
+
+/* Pokémon */
+#pokemon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.pokemon-img {
+  width: 120px;
+  height: 120px;
+  image-rendering: pixelated;
+  margin-bottom: 0.5rem;
+}
+#pokemon p {
+  margin: 0.2rem 0;
+}
+.ability {
+  display: inline-block;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 12px;
+  padding: 0.3rem 0.6rem;
+  margin: 0.2rem;
+  font-size: 0.85rem;
+  color: #94d82d;
+}
+
+/* Responsive tweak */
+@media (max-width: 600px) {
+  #time {
+    font-size: 2rem;
+  }
+  .pokemon-img {
+    width: 90px;
+    height: 90px;
+  }
 }
