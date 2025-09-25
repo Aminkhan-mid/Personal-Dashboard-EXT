@@ -44,6 +44,20 @@ function getLocalTime(){
 }
 setInterval(getLocalTime, 1000)
 
+function getTodayDate(){
+    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    const date = new Date().getDate()
+
+    const d = new Date()
+    const m = new Date()
+    let day = days[d.getDay()].substring(0,3)
+    let month = months[m.getMonth()].substring(0,3)
+
+     document.getElementById("dates").innerHTML += `<p>${day} ${date} ${month}</p>`
+
+}
+setInterval(getTodayDate(),  3600000)
 
 function getRandomQuote(){
     const randomQuote = Math.floor(Math.random() * trainerQuotes.length) + 1

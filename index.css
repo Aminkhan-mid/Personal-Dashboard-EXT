@@ -39,7 +39,13 @@ body{
     padding: 10px;
 }
 
+#pokemon{
+    display: block;
+    width: fit-content;
+    margin: 20px auto;
+}
 
 .pokemon-img{
-    width: 200px;
+    width: 300px;
+
 }
