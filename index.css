@@ -4,58 +4,48 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
+  color: white;
+  background-color: black;
+}
+body > div{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 1000px;
+    margin: 10px 0;
+}
+#weather, #time, #dates, #quote, #pokemon{
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(13px);
+    border: 1px solid rgba(255, 255, 255, 0.15);   
+    border-radius: 16px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    background-color: transparent;
 }
 
-body {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: radial-gradient(circle at top, #0d1b2a, #000);
-  color: #f1f1f1;
-  padding: 2rem;
+#weather:hover, #time:hover, #dates:hover, #quote:hover, #pokemon:hover{
+    transform: translateY(10px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
-/* Container Grid */
-body > div {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  width: 100%;
-  max-width: 1000px;
-}
 
-/* Glassmorphic cards */
-#weather, #time, #dates, #quote, #pokemon {
-  background: rgba(255, 255, 255, 0.07);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 16px;
-  padding: 1rem;
-  text-align: center;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+.weather-child{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-
-#weather:hover, #time:hover, #dates:hover, #quote:hover, #pokemon:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+.weather-child img{
+    width: 70px;
+    height: 70px;
 }
-
-/* Weather */
-.weather-child {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.weather-icon {
-  width: 70px;
-  height: 70px;
-}
-.city-name {
-  margin-top: 0.5rem;
-  font-weight: 600;
-  color: #74c0fc;
+.weather-child p{
+    font-size: 2rem;
+    color: orange;
 }
 
 /* Time */
@@ -63,16 +53,26 @@ body > div {
   font-size: 2.5rem;
   font-weight: bold;
   color: #ffd43b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Date */
 #dates {
-  font-size: 1.2rem;
+  font-size: 2rem;
   font-weight: 500;
   color: #a5d8ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Quotes */
+#quote{
+    height: fit-content;
+    display: block;
+}
 .quote {
   font-size: 1rem;
   font-style: italic;
@@ -86,10 +86,14 @@ body > div {
   align-items: center;
 }
 .pokemon-img {
-  width: 120px;
-  height: 120px;
+  width: 220px;
+  height: 220px;
   image-rendering: pixelated;
   margin-bottom: 0.5rem;
+}
+.pokemon-name{
+    font-size: 2rem;
+    color:aquamarine;
 }
 #pokemon p {
   margin: 0.2rem 0;
@@ -105,13 +109,3 @@ body > div {
   color: #94d82d;
 }
 
-/* Responsive tweak */
-@media (max-width: 600px) {
-  #time {
-    font-size: 2rem;
-  }
-  .pokemon-img {
-    width: 90px;
-    height: 90px;
-  }
-}
