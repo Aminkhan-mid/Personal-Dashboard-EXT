@@ -4,106 +4,100 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
-  color: #fff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-/* ===== Page ===== */
-body {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start; /* allow normal scrolling on mobile */
-  background: radial-gradient(circle at top, #0d1b2a, #000);
-  color: #f1f1f1;
-  padding: 2rem;
+body{
+    /* background-color: #fe4443; */
+    background-color: aliceblue;
 }
-
-/* ===== Grid container (keeps your existing HTML structure body > div) ===== */
-body > div {
-  width: 100%;
-  max-width: 1000px;
-  margin: 10px 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* responsive columns */
-  gap: 1.5rem;
+.header{
+   display: flex;
+   justify-content: space-between;
+   color: white;
 }
-
-/* ===== Cards ===== */
-#weather, #time, #dates, #quote, #pokemon {
-  background: rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 1rem;
-  text-align: center;
-  box-shadow: 0 6px 18px rgba(2,6,23,0.6);
-  transition: transform .18s ease, box-shadow .18s ease;
-  cursor: default;
+.header div{
+    margin: 10px;
 }
-
-/* subtle lift on hover (only noticeable on non-touch) */
-#weather:hover, #time:hover, #dates:hover, #quote:hover, #pokemon:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 14px 30px rgba(2,6,23,0.6);
+.header #weather{
+    background-color: black;
+    border-radius: 20px;
+    margin-bottom: 40px;
 }
-
-/* ===== Weather ===== */
-.weather-child { display:flex; flex-direction:column; align-items:center; gap:.35rem; }
-.weather-icon { width: 70px; height: 70px; }
-.city-name { font-weight:600; color:#74c0fc; font-size:1.05rem; }
-
-/* ===== Time & Date ===== */
-#time {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #ffd43b;
-  display:flex;
-  justify-content:center;
-  align-items:center;
+.header #weather .weather-child{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
 }
-#dates {
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: #a5d8ff;
-  display:flex;
-  justify-content:center;
-  align-items:center;
+.weather-child p{
+    margin-top: -19px;
 }
-
-/* ===== Quote ===== */
-#quote { min-height: 48px; display:flex; align-items:center; justify-content:center; }
-.quote { font-size: 1rem; font-style: italic; color: #e599f7; padding: 0 .5rem; }
-
-/* ===== Pokémon ===== */
-#pokemon { display:flex; flex-direction:column; align-items:center; gap:.35rem; }
-.pokemon-img { width: 140px; height: 140px; image-rendering: pixelated; }
-.pokemon-name { font-size: 1.25rem; color: aquamarine; text-transform: capitalize; }
-#pokemon p { margin: .2rem 0; }
-.ability {
-  display:inline-block;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.06);
-  border-radius: 12px;
-  padding: .25rem .6rem;
-  margin: .2rem;
-  font-size: .85rem;
-  color: #94d82d;
+.weather-child img{
+    width: 70px;
+    margin-top: -20px;
 }
-
-/* ===== Responsive tweaks ===== */
-/* tablet-ish */
-@media (max-width: 900px) {
-  body > div { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.timeDateDiv{
+    border: 1px solid;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    background-color:lightgoldenrodyellow;
+    padding: 10px;
+    border-radius: 10px;
 }
-
-/* phones: force single column */
-@media (max-width: 600px) {
-  body > div { grid-template-columns: 1fr; }
-  body { padding: 1rem; }
-  #time { font-size: 2rem; }
-  #dates { font-size: 1rem; }
-  .pokemon-img { width: 90px; height: 90px; }
+#quote{
+    background-color: orange;
+    font-weight: bold;
+    width: 90%;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+}
+#pokemon{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 90px;
+    background-color: black;
+    color:white;
+    padding: 10px;
+    border-radius: 20px;
+    margin: 10px;
+    box-shadow: 10px 10px 5px gainsboro;
+}
+#pokemon img{
+    width: 150px;   
+}
+.pokemon-name{
+    font-size: 2rem;
+    border: 1px solid;
+    color: aquamarine;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+}
+.abilityDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+}
+.abilityHead{
+    background-color: lightslategray;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+.ability{
+    background-color: orange;
+    padding: 4px 10px;
+    border-radius: 15px;
+    border: 2px solid oldlace;
+    margin: 10px;
+    text-align: center;
 }

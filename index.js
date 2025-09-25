@@ -3,7 +3,7 @@ const weather = document.getElementById("weather")
 const time = document.getElementById("time")
 const quote = document.getElementById("quote")
 const pokemon = document.getElementById("pokemon")
-const abilities = document.getElementById("abilities")
+
 
 
 
@@ -82,8 +82,10 @@ async function getPokemonGIF(){
             pokemon.innerHTML = 
             `   <img class="pokemon-img" src="${gifUrl}" alt="pokemon"/>
                 <p class="pokemon-name">${data.name.charAt(0).toUpperCase() + data.name.slice(1)}</p>
-                <p>Abilities: </p>
-                ${abilitiesHTML}
+                <p class="abilityHead">Abilities: </p>
+                <div class="abilityDiv">
+                    ${abilitiesHTML}
+                </div>
             `
     }
     if (!gifUrl){
