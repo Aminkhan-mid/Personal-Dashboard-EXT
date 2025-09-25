@@ -1,3 +1,4 @@
+import { trainerQuotes } from "./trainerQuotes.js"
 const weather = document.getElementById("weather")
 const time = document.getElementById("time")
 const quote = document.getElementById("quote")
@@ -43,16 +44,12 @@ function getLocalTime(){
 }
 setInterval(getLocalTime, 1000)
 
-async function fetchRandomQuotes() {
-    const res = await fetch(`https://thequoteshub.com/api/success`)
-    const data = await res.json()
-    quote.innerHTML = 
-    `
-    <p>${data.text}</p>
-    <p>${data.author}</p>
-    `
+
+function getRandomQuote(){
+    const randomQuote = Math.floor(Math.random() * trainerQuotes.length) + 1
+    quote.innerHTML = `<p class="quote">${trainerQuotes[randomQuote]}</p>`
 }
-fetchRandomQuotes()
+    getRandomQuote()
 
 
 async function getPokemonGIF(){
