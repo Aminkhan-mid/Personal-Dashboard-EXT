@@ -67,7 +67,8 @@ async function getPokemonGIF(){
     if(gifUrl){
             pokemon.innerHTML = 
             `   <img class="pokemon-img" src="${gifUrl}" alt="pokemon"/>
-                <p>${data.name.charAt(0).toUpperCase() + data.name.slice(1)}</p>
+                <p>Pokemon Name: ${data.name.charAt(0).toUpperCase() + data.name.slice(1)}</p>
+                <p>Abilities: </p>
                 ${abilitiesHTML}
             `
     }
@@ -77,5 +78,5 @@ async function getPokemonGIF(){
 }
 getPokemonGIF()
 
-// array has an obj, which has another obj
+
 
