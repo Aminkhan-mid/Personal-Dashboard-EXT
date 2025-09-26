@@ -24,7 +24,7 @@ const typeColors = {
 
 async function getAllPokemons() {
     try{
-        const res = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=1000`)
+        const res = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=1302`)
         if(!res.ok){
             throw new Error("something went worng!")
         }

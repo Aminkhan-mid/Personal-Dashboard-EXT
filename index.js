@@ -18,8 +18,6 @@ navigator.geolocation.getCurrentPosition(async position => {
     const res = await fetch(`https://pokeapi.co/api/v2/pokemon/pikachu`)
     const data = await res.json()
     const buttonGif = data.sprites.versions["generation-v"]["black-white"].animated.back_default  
-    console.log(buttonGif)
-    console.log("hello")
   try{
       const res = await fetch(
           `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${apiKey}`);
