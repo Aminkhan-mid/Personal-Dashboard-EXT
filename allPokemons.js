@@ -36,7 +36,8 @@ async function getAllPokemons() {
             fetch(pokeapi)
                 .then(res => res.json())
                 .then(data => {
-                    const gif =  data.sprites.versions["generation-v"]["black-white"].animated.front_default 
+                    const gif =     data.sprites.versions["generation-v"]["black-white"].animated.front_default || data.sprites.front_default || data.sprites.other["official-artwork"].front_default
+                    
                     const type = data.types[0].type.name
             
                      pokemonHtml.innerHTML += `
